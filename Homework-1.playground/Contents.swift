@@ -30,4 +30,10 @@ Same question as 1, but use optional binding (an `if let` statement) instead.
  */
 
 // Your Swift code for question 2 here:
+// (optional binding solution)
 
+if let pass = password {
+    print("\(pass) is the password")
+} else {
+    print("there is no password!")
+}
