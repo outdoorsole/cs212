@@ -14,7 +14,13 @@ let password: String?
 password = generateStringOrNil()
 
 // Your Swift code for question 1 here:
+// (standard if statement solution)
 
+if password != nil {
+    print("\(password!) is the password")
+} else {
+    print("there is no password!")
+}
 
 /*:
  ---
