@@ -15,7 +15,13 @@ var total: Int = 0
 
 // Your Swift code for question 1 here:
 
-
+var nilValues = 0
+for num in array1 {
+    if num == nil {
+        total += 1
+    }
+}
+print(total)
 /*:
  ---
 ## 2. Mean
@@ -25,7 +31,6 @@ Write code that calculates the mean (average) value of the non-nil elements in a
 let array2 = generateRandomArrayOfIntsAndNils()
 
 // Your Swift code for question 2 here:
-
 
 /*:
  ---
