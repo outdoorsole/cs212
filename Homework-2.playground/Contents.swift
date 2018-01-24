@@ -21,7 +21,7 @@ for num in array1 {
         total += 1
     }
 }
-print(total)
+print("Total nil values: \(total)")
 /*:
  ---
 ## 2. Mean
@@ -31,6 +31,23 @@ Write code that calculates the mean (average) value of the non-nil elements in a
 let array2 = generateRandomArrayOfIntsAndNils()
 
 // Your Swift code for question 2 here:
+var numCountArray2 = 0
+var sumArray2 = 0
+var average: Double
+
+for value in array2 {
+    if value != nil {
+        // increment the count of non-nil elements
+        numCountArray2 += 1
+        // include value of non-nil element to sum
+        sumArray2 += value!
+    }
+}
+
+// calculate the average of non-nil elements in array2
+average = Double(sumArray2) / Double(numCountArray2)
+print("The average is: \(average)")
+
 
 /*:
  ---
