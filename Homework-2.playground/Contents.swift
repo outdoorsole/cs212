@@ -63,7 +63,11 @@ let array3 = generateRandomArrayOfIntsAndNils()
 var nilFree3 = [Int]()
 
 // Your Swift code for question 3 here:
-
+for value in array3 {
+    if value != nil {
+        nilFree3.append(value!)
+    }
+}
 
 /*:
  ---
