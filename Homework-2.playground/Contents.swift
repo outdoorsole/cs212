@@ -181,12 +181,29 @@ print("BUBBLE SORT")
 
 // Create variable that will temporarily store the value to be swapped (smaller value)
 var temp = 0
-for index in 0..<newArray.count {
-    // Check to make sure that the last value to compare is within the array range (not out of bounds)
-    if index + 1 < newArray.count {
-        // Compare the two adjacent pairs; see if left value is greater than the value on the right
-        if newArray[index] > newArray[index + 1] {
-            print(newArray[index], newArray[index + 1])
+// Create a variable to store the number of times to pass through the array
+// Sort iterations will begin with 1 less than the total array size
+var countdown = newArray.count - 1
+
+// Continue to loop until all unsorted elements have been sorted
+while countdown > 0 {
+    for index in 0..<newArray.count {
+        // Check to make sure that the last value to compare is within the array range (not out of bounds)
+        if index + 1 < newArray.count {
+            // Compare the two adjacent pairs; see if left value is greater than the value on the right
+            if newArray[index] > newArray[index + 1] {
+                print(newArray[index], newArray[index + 1])
+                // Store the smaller value (value on the right) in the temporary variable
+                temp = newArray[index + 1]
+                // Replace the value on the right with the value on the left (larger value)
+                newArray[index + 1] = newArray[index]
+                // Replace the value on the left with the smaller value (from the temp variable)
+                newArray[index] = temp
+            }
         }
     }
+    // Decrement the iterations after one pass of the entire array is complete
+    countdown -= 1
 }
+
+print(newArray)
