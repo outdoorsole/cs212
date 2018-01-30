@@ -133,6 +133,7 @@ for (socalKey, socalValue) in socal {
 
 // Print new combined dictionary
 print("CaliAir serves the following airports (with codes and cities): \(caliair)")
+print("---------------")
 /*:
  ---
 ## 5. Sort array
@@ -151,4 +152,18 @@ print("CaliAir serves the following airports (with codes and cities): \(caliair)
 var array4 = generateRandomArrayOfIntsAndNils()
 
 // Your Swift code for question 5 here:
-
+// BUBBLE SORT
+// Explanation (from Wikipedia.org):
+// start at the beginning of the list
+// compare every adjacent pair
+// swap the position of the pair if not in the right order
+// after each iteration, compare one less element from the list (last item will be the largest)
+// Original array:
+print("Array4: \(array4)")
+print("BUBBLE SORT")
+for index in 0..<array4.count {
+    // Check if contains a value (is not nil):
+    if let value = array4[index] {
+        print(value)
+    }
+}
