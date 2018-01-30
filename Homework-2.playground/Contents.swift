@@ -162,48 +162,44 @@ var array4 = generateRandomArrayOfIntsAndNils()
 // Original array:
 print("Array4: \(array4)")
 
-// Create new array that will contain non-nil values
-var newArray: [Int] = []
-
-// Keep track of how many nils are in the array, if any
-var numNils = 0
-for index in 0..<array4.count {
-    // Check if contains a value (is not nil):
-    if let value = array4[index] {
-        // Add the non-nil element to the new array
-        newArray.append(value)
-    } else {
-        numNils += 1
-    }
-}
-print(numNils)
-
-// print new array
-print("New array: \(newArray)")
-
 // Sorting
 print("BUBBLE SORT")
 
 // Create variable that will temporarily store the value to be swapped (smaller value)
-var temp = 0
+var temp: Int?
 // Create a variable to store the number of times to pass through the array
 // Sort iterations will begin with 1 less than the total array size
-var countdown = newArray.count - 1
+var countdown = array4.count - 1
+print("Countdown (iterations) starts at: \(countdown)")
 
 // Continue to loop until all unsorted elements have been sorted
 while countdown > 0 {
-    for index in 0..<newArray.count {
-        // Check to make sure that the last value to compare is within the array range (not out of bounds)
-        if index + 1 < newArray.count {
-            // Compare the two adjacent pairs; see if left value is greater than the value on the right
-            if newArray[index] > newArray[index + 1] {
-                print(newArray[index], newArray[index + 1])
-                // Store the smaller value (value on the right) in the temporary variable
-                temp = newArray[index + 1]
-                // Replace the value on the right with the value on the left (larger value)
-                newArray[index + 1] = newArray[index]
-                // Replace the value on the left with the smaller value (from the temp variable)
-                newArray[index] = temp
+    for index in 0..<array4.count {
+//        // Check to make sure that the last value to compare is within the array range (not out of bounds)
+        if index + 1 < array4.count {
+            // Check if both of the elements in the pair are nil
+            if array4[index] == nil || array4[index + 1] == nil {
+                if array4[index] == nil && array4[index + 1] == nil {
+                    // 1) Do nothing; both elements are nil, leave them in place.
+                } else if array4[index] == nil {
+                    // 2) Do nothing, both elements are in the correct order
+                } else {
+                    // 3) Move the nil element to the left
+                    temp = nil
+                    array4[index + 1] = array4[index]!
+                    array4[index] = temp
+                }
+            } else {
+                // Both elements contain a value
+                // Compare the two adjacent pairs; see if left value is greater than the value on the right
+                if array4[index]! > array4[index + 1]! {
+                    // Store the smaller value (value on the right) in the temporary variable
+                    temp = array4[index + 1]
+                    // Replace the value on the right with the value on the left (larger value)
+                    array4[index + 1] = array4[index]
+                    // Replace the value on the left with the smaller value (from the temp variable)
+                    array4[index] = temp
+                }
             }
         }
     }
@@ -211,18 +207,4 @@ while countdown > 0 {
     countdown -= 1
 }
 
-// Create an array of optional Ints
-var arrayWithNils: [Int?] = []
-
-// Duplicate the newArray to the new array
-for index in 0..<newArray.count {
-    arrayWithNils.append(newArray[index])
-}
-
-// Add the nils back to the front of the array (treat nil value and consider it to be less than an element with value)
-for _ in 0..<numNils {
-    arrayWithNils.insert(nil, at: 0)
-}
-
-// Sorted array with nil values included
-print(arrayWithNils)
+print("Array after sorting: \(array4)")
