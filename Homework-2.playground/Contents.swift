@@ -158,9 +158,9 @@ var array4 = generateRandomArrayOfIntsAndNils()
 // compare every adjacent pair
 // swap the position of the pair if not in the right order
 // after each iteration, compare one less element from the list (last item will be the largest)
+
 // Original array:
 print("Array4: \(array4)")
-print("BUBBLE SORT")
 
 // Create new array that will contain non-nil values
 var newArray: [Int] = []
@@ -168,7 +168,6 @@ var newArray: [Int] = []
 for index in 0..<array4.count {
     // Check if contains a value (is not nil):
     if let value = array4[index] {
-        print(value)
         // Add the non-nil element to the new array
         newArray.append(value)
     }
@@ -176,3 +175,18 @@ for index in 0..<array4.count {
 
 // print new array
 print("New array: \(newArray)")
+
+// Sorting
+print("BUBBLE SORT")
+
+// Create variable that will temporarily store the value to be swapped (smaller value)
+var temp = 0
+for index in 0..<newArray.count {
+    // Check to make sure that the last value to compare is within the array range (not out of bounds)
+    if index + 1 < newArray.count {
+        // Compare the two adjacent pairs; see if left value is greater than the value on the right
+        if newArray[index] > newArray[index + 1] {
+            print(newArray[index], newArray[index + 1])
+        }
+    }
+}
