@@ -109,6 +109,7 @@ var caliair = [String: String]()
 print("NorcalAir airports and cities:")
 for (key, value) in norcal {
     print("Airport code: \(key), Airport name: \(value)")
+    // Add NorcalAir airport codes and cities first
     caliair[key] = value
 }
 print("")
@@ -121,8 +122,9 @@ print("")
 
 
 for (socalKey, socalValue) in socal {
+    // Check if CaliAir dictionary already contains airport code (already exists)
     if caliair.keys.contains(socalKey) {
-        // Do nothing
+        // Do nothing, default will be NorcalAir information
     } else {
         // Create new key in caliair dictionary and add value
         caliair[socalKey] = socalValue
