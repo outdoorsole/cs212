@@ -101,8 +101,18 @@ for value in array3 {
  */
 
 // Your Swift code for question 4 here:
+print("---------------")
+print("NorcalAir airports and cities")
+for (key, value) in norcal {
+    print("Key: \(key), Value: \(value)")
+}
+print("")
 
-
+print("---------------")
+print("SocalAir airports and cities")
+for (key, value) in socal {
+    print("Key: \(key), Value: \(value)")
+}
 /*:
  ---
 ## 5. Sort array
