@@ -113,6 +113,14 @@ print("SocalAir airports and cities")
 for (key, value) in socal {
     print("Key: \(key), Value: \(value)")
 }
+
+// Create new dictionary
+var caliair = [String: String]()
+print("---------------")
+for (key, value) in norcal {
+    caliair[key] = value
+}
+print(caliair)
 /*:
  ---
 ## 5. Sort array
