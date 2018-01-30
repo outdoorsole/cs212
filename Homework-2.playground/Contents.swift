@@ -165,13 +165,18 @@ print("Array4: \(array4)")
 // Create new array that will contain non-nil values
 var newArray: [Int] = []
 
+// Keep track of how many nils are in the array, if any
+var numNils = 0
 for index in 0..<array4.count {
     // Check if contains a value (is not nil):
     if let value = array4[index] {
         // Add the non-nil element to the new array
         newArray.append(value)
+    } else {
+        numNils += 1
     }
 }
+print(numNils)
 
 // print new array
 print("New array: \(newArray)")
@@ -206,4 +211,18 @@ while countdown > 0 {
     countdown -= 1
 }
 
-print(newArray)
+// Create an array of optional Ints
+var arrayWithNils: [Int?] = []
+
+// Duplicate the newArray to the new array
+for index in 0..<newArray.count {
+    arrayWithNils.append(newArray[index])
+}
+
+// Add the nils back to the front of the array (treat nil value and consider it to be less than an element with value)
+for _ in 0..<numNils {
+    arrayWithNils.insert(nil, at: 0)
+}
+
+// Sorted array with nil values included
+print(arrayWithNils)
