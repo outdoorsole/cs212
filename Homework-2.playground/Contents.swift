@@ -121,6 +121,17 @@ for (key, value) in norcal {
     caliair[key] = value
 }
 print(caliair)
+
+
+for (socalKey, socalValue) in socal {
+    if caliair.keys.contains(socalKey) {
+        print("Socalkey: \(socalKey)")
+    } else {
+        caliair[socalKey] = socalValue
+    }
+}
+
+print(caliair)
 /*:
  ---
 ## 5. Sort array
