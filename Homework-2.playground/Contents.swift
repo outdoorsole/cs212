@@ -161,9 +161,18 @@ var array4 = generateRandomArrayOfIntsAndNils()
 // Original array:
 print("Array4: \(array4)")
 print("BUBBLE SORT")
+
+// Create new array that will contain non-nil values
+var newArray: [Int] = []
+
 for index in 0..<array4.count {
     // Check if contains a value (is not nil):
     if let value = array4[index] {
         print(value)
+        // Add the non-nil element to the new array
+        newArray.append(value)
     }
 }
+
+// print new array
+print("New array: \(newArray)")
