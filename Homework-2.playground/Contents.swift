@@ -22,6 +22,7 @@ for num in array1 {
     }
 }
 print("Total nil values: \(total)")
+print("---------------")
 /*:
  ---
 ## 2. Mean
@@ -47,7 +48,7 @@ for value in array2 {
 // calculate the average of non-nil elements in array2
 average = Double(sumArray2) / Double(numCountArray2)
 print("The average is: \(average)")
-
+print("---------------")
 
 /*:
  ---
@@ -101,37 +102,35 @@ for value in array3 {
  */
 
 // Your Swift code for question 4 here:
-print("---------------")
-print("NorcalAir airports and cities")
-for (key, value) in norcal {
-    print("Key: \(key), Value: \(value)")
-}
-print("")
-
-print("---------------")
-print("SocalAir airports and cities")
-for (key, value) in socal {
-    print("Key: \(key), Value: \(value)")
-}
 
 // Create new dictionary
 var caliair = [String: String]()
-print("---------------")
+
+print("NorcalAir airports and cities:")
 for (key, value) in norcal {
+    print("Airport code: \(key), Airport name: \(value)")
     caliair[key] = value
 }
-print(caliair)
+print("")
+
+print("SocalAir airports and cities:")
+for (key, value) in socal {
+    print("Airport code: \(key), Airport name: \(value)")
+}
+print("")
 
 
 for (socalKey, socalValue) in socal {
     if caliair.keys.contains(socalKey) {
-        print("Socalkey: \(socalKey)")
+        // Do nothing
     } else {
+        // Create new key in caliair dictionary and add value
         caliair[socalKey] = socalValue
     }
 }
 
-print(caliair)
+// Print new combined dictionary
+print("CaliAir serves the following airports (with codes and cities): \(caliair)")
 /*:
  ---
 ## 5. Sort array
