@@ -8,7 +8,9 @@
 
 import Cocoa
 
+// ******************************************************************
 // CIRCLE
+// ******************************************************************
 
 // Write a struct named Circle
 struct Circle {
@@ -45,6 +47,7 @@ struct Circle {
     }
 }
 
+// CIRCLE OUTPUT
 print("------------------")
 print("1 - CIRCLE STRUCTS:")
 
@@ -59,7 +62,9 @@ var circle2 = Circle()
 print("circle2 radius: \(circle2.radius)")
 print("------------------")
 
+// ******************************************************************
 // CIRCLECOLLECTION
+// ******************************************************************
 
 // Write a class named CircleCollection
 class CircleCollection {
@@ -93,6 +98,7 @@ class CircleCollection {
     }
 }
 
+// CIRCLE COLLECTION OUTPUT
 var circleCollection = CircleCollection()
 circleCollection.add(circle: circle1)
 circleCollection.add(circle: circle2)
@@ -100,7 +106,9 @@ circleCollection.count
 circleCollection.displayCircleWithRadiusBetween(min: 0, max: 5)
 print("------------------")
 
+// ******************************************************************
 // TODOITEM
+// ******************************************************************
 
 // Write a class named ToDoItem, that could be used in an app that keeps a list tasks that the user wants to do.
 class ToDoItem {
@@ -124,7 +132,7 @@ class ToDoItem {
     
     // Give the class a method named fullDescription() that returns a string with the task, priority, and the due date if there is one. The format of this string is up to you. Anything that includes the information is fine. You should conditionally unwrap the date, to form appropriate strings for items that have dates, and for items that do not. Hint: look up the DateFormatter class to help convert a Date to a String.
     func fullDescription() -> String {
-        return "Test"
+        return "This is the testDate: \(dueDate!)"
     }
     
     init(task: String, priority: Int, dueDate: Date?) {
@@ -134,6 +142,7 @@ class ToDoItem {
     }
 }
 
+// TODO ITEM OUTPUT
 print("3 - TODOITEM")
 var testDate = Date()
 print(testDate)
@@ -146,9 +155,14 @@ print(description)
 
 
 let dateFormatter = DateFormatter()
+dateFormatter.locale = Locale(identifier: "en_US")
+
 print("------------------")
 
-print("4 - ANNOTATED TODO ITEM")
+// ******************************************************************
+// ANNOTATED TODO ITEM
+// ******************************************************************
+
 // Write a class named AnnotatedToDoItem that is a subclass of ToDoItem, but adds an additional property.
 class AnnotatedToDoItem: ToDoItem {
     // The additional property should be named note, and it should be type String optional.
@@ -167,5 +181,7 @@ class AnnotatedToDoItem: ToDoItem {
     }
 }
 
+// TODO ITEM OUTPUT
+print("4 - ANNOTATED TODO ITEM")
 print("------------------")
 
