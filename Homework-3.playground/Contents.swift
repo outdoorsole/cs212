@@ -50,7 +50,7 @@ print("Circle structs:")
 
 // Output: using first init method
 var circle1 = Circle(radius: 12, name: "circle1")
-circle1.radius = -4
+circle1.radius = 5
 print("circle1 radius: \(circle1.radius)")
 print("circle1 name: \(circle1.name!)")
 
@@ -80,13 +80,14 @@ class CircleCollection {
     func displayCircleWithRadiusBetween(min: Double, max: Double) {
         print("Circle Array information:")
         for circle in circleArray {
-            // If a circle doesn't have a value for name (i.e. it is nil), display a string saying "no-name circle has area: x" where x is the area of the circle.
-            if circle.name != nil {
-                print("This circle's name is \(circle.name!) and has a radius of \(circle.radius).")
-                print("The computed area of \(circle.name!) is \(circle.area).")
-            } else {
-                print("No-name circle has a radius of \(circle.radius).")
-                print("The computed area of no-name circle is \(circle.area).")
+            // 1) Check if the circle is within the given min and max values. If so, continue.
+            if circle.radius >= min && circle.radius <= max {
+                // 2) If a circle doesn't have a value for name (i.e. it is nil), display a string saying "no-name circle has area: x" where x is the area of the circle.
+                if circle.name != nil {
+                    print("\(circle.name!) and has area: \(circle.area).")
+                } else {
+                    print("no-name circle has area: \(circle.area).")
+                }
             }
         }
     }
@@ -96,5 +97,5 @@ var circleCollection = CircleCollection()
 circleCollection.add(circle: circle1)
 circleCollection.add(circle: circle2)
 circleCollection.count
-circleCollection.displayCircleWithRadiusBetween(min: 0, max: 10)
+circleCollection.displayCircleWithRadiusBetween(min: 0, max: 5)
 
