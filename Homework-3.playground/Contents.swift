@@ -72,6 +72,8 @@ class CircleCollection {
     // It should have a method named add(circle: Circle), that add parameter circle to the array.
     func add(circle: Circle) {
         circleArray.append(circle)
+        // Increase the count by 1 for the number of circles in the circleArray
+        count += 1
     }
     
     // It should have a method named displayCircleWithRadiusBetween(min: Double, max: Double) which will display information to the debug area about all the circles in the collection which have a radius between parameters min and max, inclusive.
@@ -93,5 +95,6 @@ class CircleCollection {
 var circleCollection = CircleCollection()
 circleCollection.add(circle: circle1)
 circleCollection.add(circle: circle2)
+circleCollection.count
 circleCollection.displayCircleWithRadiusBetween(min: 0, max: 10)
 
