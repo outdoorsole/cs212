@@ -73,10 +73,25 @@ class CircleCollection {
     func add(circle: Circle) {
         circleArray.append(circle)
     }
+    
+    // It should have a method named displayCircleWithRadiusBetween(min: Double, max: Double) which will display information to the debug area about all the circles in the collection which have a radius between parameters min and max, inclusive.
+    func displayCircleWithRadiusBetween(min: Double, max: Double) {
+        print("Circle Array information:")
+        for circle in circleArray {
+            // If a circle doesn't have a value for name (i.e. it is nil), display a string saying "no-name circle has area: x" where x is the area of the circle.
+            if circle.name != nil {
+                print("This circle's name is \(circle.name!) and has a radius of \(circle.radius).")
+                print("The computed area of \(circle.name!) is \(circle.area).")
+            } else {
+                print("No-name circle has a radius of \(circle.radius).")
+                print("The computed area of no-name circle is \(circle.area).")
+            }
+        }
+    }
 }
 
 var circleCollection = CircleCollection()
 circleCollection.add(circle: circle1)
 circleCollection.add(circle: circle2)
-
+circleCollection.displayCircleWithRadiusBetween(min: 0, max: 10)
 
