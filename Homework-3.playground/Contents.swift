@@ -64,7 +64,7 @@ print("------------------")
 // Write a class named CircleCollection
 class CircleCollection {
    // It should have a private property of type [Circle] (an array of circles). Initially, this should be an empty array.
-    var circleArray: [Circle] = []
+    private var circleArray: [Circle] = []
     
     // It should have a computed property named count that returns the number of elements in the circle array.
     var count: Int = 0
