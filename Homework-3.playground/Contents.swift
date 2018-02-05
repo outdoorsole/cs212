@@ -46,7 +46,7 @@ struct Circle {
 }
 
 print("------------------")
-print("Circle structs:")
+print("1 - CIRCLE STRUCTS:")
 
 // Output: using first init method
 var circle1 = Circle(radius: 12, name: "circle1")
@@ -78,7 +78,7 @@ class CircleCollection {
     
     // It should have a method named displayCircleWithRadiusBetween(min: Double, max: Double) which will display information to the debug area about all the circles in the collection which have a radius between parameters min and max, inclusive.
     func displayCircleWithRadiusBetween(min: Double, max: Double) {
-        print("Circle Array information:")
+        print("2 - CIRCLE ARRAY INFORMATION:")
         for circle in circleArray {
             // 1) Check if the circle is within the given min and max values. If so, continue.
             if circle.radius >= min && circle.radius <= max {
@@ -98,4 +98,37 @@ circleCollection.add(circle: circle1)
 circleCollection.add(circle: circle2)
 circleCollection.count
 circleCollection.displayCircleWithRadiusBetween(min: 0, max: 5)
+print("------------------")
 
+// TODOITEM
+
+// Write a class named ToDoItem, that could be used in an app that keeps a list tasks that the user wants to do.
+class ToDoItem {
+    // Give the class a String property named task.
+    var task: String = ""
+    
+    // Give the class Int property named priority.
+    var priority: Int = 0 {
+        // Use an observer to ensure that the value is in the range 0 to 10.
+        didSet {
+            if priority < 0 {
+                priority = 0
+            } else if priority > 10 {
+                priority = 10
+            }
+        }
+    }
+    
+    // Give the class an optional property named dueDate. Its data type should be a Date optional.
+    var dueDate: Date?
+    
+    // Give the class a method named fullDescription() that returns a string with the task, priority, and the due date if there is one. The format of this string is up to you. Anything that includes the information is fine. You should conditionally unwrap the date, to form appropriate strings for items that have dates, and for items that do not. Hint: look up the DateFormatter class to help convert a Date to a String.
+    func fullDescription() -> String {
+        return "Test"
+    }
+}
+
+print("3 - TODOITEM")
+var todo = ToDoItem()
+var description = todo.fullDescription()
+print(description)
