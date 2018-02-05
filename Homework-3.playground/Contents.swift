@@ -126,9 +126,46 @@ class ToDoItem {
     func fullDescription() -> String {
         return "Test"
     }
+    
+    init(task: String, priority: Int, dueDate: Date?) {
+        self.task = task
+        self.priority = priority
+        self.dueDate = dueDate
+    }
 }
 
 print("3 - TODOITEM")
-var todo = ToDoItem()
+var testDate = Date()
+print(testDate)
+print("This is the testDate: \(testDate)")
+
+var todo = ToDoItem(task: "Take out trash", priority: 1, dueDate: testDate)
 var description = todo.fullDescription()
 print(description)
+
+
+
+let dateFormatter = DateFormatter()
+print("------------------")
+
+print("4 - ANNOTATED TODO ITEM")
+// Write a class named AnnotatedToDoItem that is a subclass of ToDoItem, but adds an additional property.
+class AnnotatedToDoItem: ToDoItem {
+    // The additional property should be named note, and it should be type String optional.
+    var note: String?
+    
+    // Write an init method that accepts four arguments; the three from ToDoItem, and the additional note property, and set the properties appropriately.
+    init(task: String, priority: Int, dueDate: Date?, note: String?) {
+        super.init(task: task, priority: priority, dueDate: dueDate)
+        self.note = note
+    }
+    
+    // Override the fullDescription() method so that it includes the note if there is one.
+    override func fullDescription() -> String {
+        super.fullDescription()
+        return "\(note!)"
+    }
+}
+
+print("------------------")
+
