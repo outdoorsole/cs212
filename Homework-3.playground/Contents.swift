@@ -45,6 +45,9 @@ struct Circle {
     }
 }
 
+print("------------------")
+print("Circle structs:")
+
 // Output: using first init method
 var circle1 = Circle(radius: 12, name: "circle1")
 circle1.radius = -4
@@ -54,3 +57,26 @@ print("circle1 name: \(circle1.name!)")
 // Output: using second init method
 var circle2 = Circle()
 print("circle2 radius: \(circle2.radius)")
+print("------------------")
+
+// CIRCLECOLLECTION
+
+// Write a class named CircleCollection
+class CircleCollection {
+   // It should have a private property of type [Circle] (an array of circles). Initially, this should be an empty array.
+    var circleArray: [Circle] = []
+    
+    // It should have a computed property named count that returns the number of elements in the circle array.
+    var count: Int = 0
+    
+    // It should have a method named add(circle: Circle), that add parameter circle to the array.
+    func add(circle: Circle) {
+        circleArray.append(circle)
+    }
+}
+
+var circleCollection = CircleCollection()
+circleCollection.add(circle: circle1)
+circleCollection.add(circle: circle2)
+
+
