@@ -33,7 +33,7 @@ struct Circle {
     // Create a computed property named area. The formula for area is 3.14159*radius*radius
     var area: Double {
         get {
-            return 3.14159*radius*radius
+            return 3.14159 * radius * radius
         }
     }
     // Create an init method with no parameters that sets the radius to 0 and leaves the name to be nil
@@ -83,7 +83,6 @@ class CircleCollection {
     
     // It should have a method named displayCircleWithRadiusBetween(min: Double, max: Double) which will display information to the debug area about all the circles in the collection which have a radius between parameters min and max, inclusive.
     func displayCircleWithRadiusBetween(min: Double, max: Double) {
-        print("2 - CIRCLE ARRAY INFORMATION:")
         for circle in circleArray {
             // 1) Check if the circle is within the given min and max values. If so, continue.
             if circle.radius >= min && circle.radius <= max {
@@ -99,6 +98,7 @@ class CircleCollection {
 }
 
 // CIRCLE COLLECTION OUTPUT
+print("2 - CIRCLE ARRAY INFORMATION:")
 var circleCollection = CircleCollection()
 circleCollection.add(circle: circle1)
 circleCollection.add(circle: circle2)
@@ -132,7 +132,18 @@ class ToDoItem {
     
     // Give the class a method named fullDescription() that returns a string with the task, priority, and the due date if there is one. The format of this string is up to you. Anything that includes the information is fine. You should conditionally unwrap the date, to form appropriate strings for items that have dates, and for items that do not. Hint: look up the DateFormatter class to help convert a Date to a String.
     func fullDescription() -> String {
-        return "This is the testDate: \(dueDate!)"
+        if let taskDate = dueDate {
+            
+            // Format the date
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US")
+            dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+            let formattedDate = dateFormatter.string(from: taskDate)
+            
+            return "Priority \(priority): \(task) - due \(formattedDate)."
+        } else {
+            return "Priority \(priority): \(task)"
+        }
     }
     
     init(task: String, priority: Int, dueDate: Date?) {
@@ -144,19 +155,9 @@ class ToDoItem {
 
 // TODO ITEM OUTPUT
 print("3 - TODOITEM")
-var testDate = Date()
-print(testDate)
-print("This is the testDate: \(testDate)")
-
-var todo = ToDoItem(task: "Take out trash", priority: 1, dueDate: testDate)
+var todo = ToDoItem(task: "Take out trash", priority: 1, dueDate: Date())
 var description = todo.fullDescription()
 print(description)
-
-
-
-let dateFormatter = DateFormatter()
-dateFormatter.locale = Locale(identifier: "en_US")
-
 print("------------------")
 
 // ******************************************************************
