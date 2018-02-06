@@ -150,7 +150,7 @@ class ToDoItem {
             // Format the date
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "en_US")
-            dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+            dateFormatter.setLocalizedDateFormatFromTemplate("MMddyy")
             let formattedDate = dateFormatter.string(from: taskDate)
             
             return "Priority \(priority): \(task) - due \(formattedDate)."
