@@ -82,7 +82,7 @@ class CircleCollection {
     }
     
     // It should have a method named displayCircleWithRadiusBetween(min: Double, max: Double) which will display information to the debug area about all the circles in the collection which have a radius between parameters min and max, inclusive.
-    func displayCircleWithRadiusBetween(min: Double, max: Double) {
+    func displayCirclesWithRadiusBetween(min: Double, max: Double) {
         for circle in circleArray {
             // 1) Check if the circle is within the given min and max values. If so, continue.
             if circle.radius >= min && circle.radius <= max {
@@ -103,7 +103,7 @@ var circleCollection = CircleCollection()
 circleCollection.add(circle: circle1)
 circleCollection.add(circle: circle2)
 circleCollection.count
-circleCollection.displayCircleWithRadiusBetween(min: 0, max: 5)
+circleCollection.displayCirclesWithRadiusBetween(min: 0, max: 5)
 print("------------------")
 
 // ******************************************************************
@@ -177,12 +177,51 @@ class AnnotatedToDoItem: ToDoItem {
     
     // Override the fullDescription() method so that it includes the note if there is one.
     override func fullDescription() -> String {
-        super.fullDescription()
-        return "\(note!)"
+        var outputString = super.fullDescription()
+        
+        if let annotatedNote = note {
+            outputString += " \(annotatedNote)"
+        }
+        return outputString
     }
 }
 
 // TODO ITEM OUTPUT
 print("4 - ANNOTATED TODO ITEM")
+var annotatedTodo = AnnotatedToDoItem(task: "Read about Swift", priority: 1, dueDate: Date(), note: "Look up developer docs.")
+var annotatedDescription = annotatedTodo.fullDescription()
+print(annotatedDescription)
 print("------------------")
 
+
+// ******************************************************************
+// TEST CODE
+// ******************************************************************
+
+print("TEST CODE")
+// test Circle
+var donutHole = Circle(radius: 2, name: "donut hole")
+var pie = Circle(radius: 6, name: "pie")
+var cookie = Circle()
+cookie.radius = 4
+pie.radius = 12
+donutHole.radius = -2
+
+
+// test CircleCollection
+var circles = CircleCollection()
+print("We have \(circles.count) circles in the collection")
+circles.add(circle: donutHole)
+circles.add(circle: pie)
+circles.add(circle: cookie)
+print("We have \(circles.count) circles in the collection")
+circles.displayCirclesWithRadiusBetween(min: 0, max: 10)
+
+
+// test ToDoItem and AnnotatedToDoItem
+let cs212hw3 = ToDoItem(task: "CS212 HW3", priority: 2, dueDate: Date())
+let reading3 = AnnotatedToDoItem(task: "reading", priority: 1, dueDate: Date(), note: "read Swift guide for properties")
+let laundry = AnnotatedToDoItem(task: "do laundry", priority: 3, dueDate: nil, note: nil)
+print(cs212hw3.fullDescription())
+print(reading3.fullDescription())
+print(laundry.fullDescription())
