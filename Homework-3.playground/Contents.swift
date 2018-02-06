@@ -30,7 +30,7 @@ struct Circle {
     // Give your circle a property named name with the type String optional.
     var name: String?
     
-    // Create a computed property named area. The formula for area is 3.14159*radius*radius
+    // Create a computed property named area. The formula for area is 3.14159 * radius * radius
     var area: Double {
         get {
             return 3.14159 * radius * radius
@@ -52,14 +52,26 @@ print("------------------")
 print("1 - CIRCLE STRUCTS:")
 
 // Output: using first init method
-var circle1 = Circle(radius: 12, name: "circle1")
+var circle1 = Circle(radius: 5, name: "circle1")
+print("circle1 radius (initially set with init method): \(circle1.radius)")
+circle1.radius = 12
+print("circle1 radius (after trying to set it above max): \(circle1.radius)")
+circle1.radius = -4
+print("circle1 radius (after trying to set it below min): \(circle1.radius)")
+// Set back to initial value
 circle1.radius = 5
 print("circle1 radius: \(circle1.radius)")
-print("circle1 name: \(circle1.name!)")
+if let circleName = circle1.name {
+    print("circle1 name: \(circleName)")
+}
+
 
 // Output: using second init method
 var circle2 = Circle()
 print("circle2 radius: \(circle2.radius)")
+if let circleName = circle2.name {
+    print("circle1 name: \(circleName)")
+}
 print("------------------")
 
 // ******************************************************************
@@ -83,6 +95,7 @@ class CircleCollection {
     
     // It should have a method named displayCircleWithRadiusBetween(min: Double, max: Double) which will display information to the debug area about all the circles in the collection which have a radius between parameters min and max, inclusive.
     func displayCirclesWithRadiusBetween(min: Double, max: Double) {
+        print("The selected max radius is \(max) and the min radius is \(min). The circle(s) that fit that criteria:")
         for circle in circleArray {
             // 1) Check if the circle is within the given min and max values. If so, continue.
             if circle.radius >= min && circle.radius <= max {
@@ -103,7 +116,7 @@ var circleCollection = CircleCollection()
 circleCollection.add(circle: circle1)
 circleCollection.add(circle: circle2)
 circleCollection.count
-circleCollection.displayCirclesWithRadiusBetween(min: 0, max: 5)
+circleCollection.displayCirclesWithRadiusBetween(min: 0, max: 4)
 print("------------------")
 
 // ******************************************************************
@@ -155,7 +168,7 @@ class ToDoItem {
 
 // TODO ITEM OUTPUT
 print("3 - TODOITEM")
-var todo = ToDoItem(task: "Take out trash", priority: 1, dueDate: Date())
+var todo = ToDoItem(task: "Take out trash", priority: 2, dueDate: Date())
 var description = todo.fullDescription()
 print(description)
 print("------------------")
