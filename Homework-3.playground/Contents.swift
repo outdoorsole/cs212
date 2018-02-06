@@ -1,3 +1,4 @@
+// Maribel Montejano
 // Assignment 3: Classes and Structs
 // Objectives:
 // - create classes
